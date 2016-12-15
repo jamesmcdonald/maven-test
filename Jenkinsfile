@@ -1,3 +1,3 @@
 node {
-    sh env
+    sh 'env'
 }
