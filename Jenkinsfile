@@ -1,5 +1,9 @@
-@Library("spk-jenkins-lib")
+@Library('spk-jenkins-lib')
 
-d = dockerRunner("james.mcdonald@spk.no")
+d = dockerRunner('james.mcdonald@spk.no')
 
-d.mvn("clean compile install")
+d.mvn('clean test')
+d.build()
+d.test {
+    sh 'ls -l /*.jar'
+}
