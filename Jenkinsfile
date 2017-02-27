@@ -3,7 +3,6 @@
 d = dockerRunner('james.mcdonald@spk.no')
 
 d.mvn('clean package')
-d.build()
-d.test {
+d.build {
     sh 'ls -l /*.jar'
 }
