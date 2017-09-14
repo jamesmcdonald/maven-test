@@ -1,10 +1,5 @@
 image: maven
-build:
-    stage: build
-    script:
-        - mvn clean compile
 
 test:
-    stage: test
-    script:
-        - mvn test
+  script:
+    - mvn clean test
