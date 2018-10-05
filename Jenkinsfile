@@ -1,6 +1,6 @@
-@Library('spk-jenkins-lib')
+@Library('jenkins-lib')
 
-def d = dockerRunner('james.mcdonald@spk.no')
+def d = dockerRunner('james@test')
 
 d.mvn 'clean package'
 d.build {
