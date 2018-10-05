@@ -1,8 +1,19 @@
-@Library('jenkins-lib')
-
-def d = dockerRunner('james@test')
-
-d.mvn 'clean package'
-d.build {
-    sh 'ls -l /*.jar'
+pipeline {
+    agent {
+        docker {
+            image 'maven'
+        }
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
 }
