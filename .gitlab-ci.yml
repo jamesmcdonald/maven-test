@@ -1,0 +1,7 @@
+image: maven
+
+test:
+  services:
+    - postgres
+  script:
+    - mvn clean test
