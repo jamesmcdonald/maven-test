@@ -1,12 +1,9 @@
-jobs:
-  plan:
-    - task: maven-test
-      config:
-        image_resouece:
-          type: docker-image
-          source: {repository: maven}
-        params:
-          _JAVA_OPTIONS: "-Djdk.net.URLClassPath.disableClassPathURLCheck=true"
-        run:
-          path: mvn
-          args: [test]
+config:
+image_resouece:
+  type: docker-image
+  source: {repository: maven}
+params:
+  _JAVA_OPTIONS: "-Djdk.net.URLClassPath.disableClassPathURLCheck=true"
+run:
+  path: mvn
+  args: [test]
