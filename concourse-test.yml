@@ -4,6 +4,9 @@ image_resource:
   source: {repository: maven}
 params:
   _JAVA_OPTIONS: "-Djdk.net.URLClassPath.disableClassPathURLCheck=true"
+inputs:
+  - name: maven-test
 run:
   path: mvn
   args: [test]
+  dir: maven-test
