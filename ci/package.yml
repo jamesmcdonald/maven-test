@@ -8,5 +8,5 @@ inputs:
   - name: maven-test
 run:
   path: mvn
-  args: [clean package]
+  args: [clean, package]
   dir: maven-test
