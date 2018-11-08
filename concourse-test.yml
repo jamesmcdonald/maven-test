@@ -1,5 +1,4 @@
-config:
-image_resouece:
+image_resource:
   type: docker-image
   source: {repository: maven}
 params:
