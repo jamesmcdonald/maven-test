@@ -5,6 +5,11 @@ pipeline {
         }
     }
     stages {
+        stage('Diagnostics') {
+            steps {
+                sh 'env'
+            }
+        }
         stage('Checkout') {
             steps {
                 checkout scm
