@@ -2,6 +2,11 @@ pipeline {
     agent none
     stages {
         stage('Diagnostics') {
+            agent {
+                docker {
+                    image 'busybox'
+                }
+            }
             environment {
                 GITSHA = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
             }
@@ -10,12 +15,12 @@ pipeline {
                 sh 'env'
             }
         }
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Build') {
+            agent {
+                docker {
+                    image 'maven'
+                }
+            }
             steps {
                 sh 'mvn clean package'
             }
