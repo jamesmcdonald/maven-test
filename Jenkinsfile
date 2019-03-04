@@ -1,12 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven'
-        }
-    }
+    agent none
     stages {
         stage('Diagnostics') {
             steps {
+                def sha = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+                echo "SHA: ${sha}"
+                echo "Environment:"
                 sh 'env'
             }
         }
