@@ -4,7 +4,7 @@ pipeline {
         stage('Diagnostics') {
             agent {
                 docker {
-                    image 'busybox'
+                    image 'openjdk:11'
                 }
             }
             environment {
