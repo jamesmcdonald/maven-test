@@ -1,0 +1,13 @@
+resources:
+  - name: maven-test
+    type: git
+    source:
+      uri: "https://gitlab.com/jamesmcdonald/maven-test.git"
+
+jobs:
+ - name: test
+   plan:
+     - get: maven-test
+       trigger: true
+     - task: test
+       file: maven-test/ci/test.yml
