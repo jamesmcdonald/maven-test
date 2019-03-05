@@ -1,9 +1,10 @@
-FROM maven AS builder
+FROM openjdk:11 as builder
 
-COPY src pom.xml /build/
+COPY . /build/
 WORKDIR /build
-RUN mvn clean package
+RUN ./gradlew build
 
 FROM openjdk:11
 
-COPY --from=builder /build/target/*.jar /
+COPY --from=builder /build/build/libs/maven-test.jar /
+CMD java -jar /maven-test.jar
